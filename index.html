@@ -50,7 +50,7 @@ body { background: var(--bg); color: var(--ink); font-family: 'Jost', sans-serif
   font-weight: 300;
   font-style: italic;
   letter-spacing: 0.22em;
-  color: rgba(220,210,195,0.38);
+  color: rgba(220,210,195,0.75);
   text-align: center;
   margin-top: 0.75rem;
   margin-bottom: 2.5rem;
@@ -75,7 +75,7 @@ body { background: var(--bg); color: var(--ink); font-family: 'Jost', sans-serif
   transition: color 0.3s;
   margin-top: 0;
 }
-@media (max-width: 768px) { .about-btn { margin-top: 4rem; } }
+@media (max-width: 768px) { .about-btn { position: fixed; bottom: 2.5rem; left: 50%; transform: translateX(-50%); margin-top: 0; z-index: 10; } }
 .about-btn:hover { color: #c9a96e; }
 
 /* MOBILE SCROLL BTN */
@@ -385,7 +385,7 @@ textarea { min-height: 72px; line-height: 1.6; }
 // Mobile logo → scroll to about section
 if (window.innerWidth <= 768) {
   const logoLink = document.getElementById('logo-link');
-  logoLink.removeAttribute('href');
+  logoLink.setAttribute('href', '#about-section');
   logoLink.addEventListener('click', function(e) {
     e.preventDefault();
     document.getElementById('about-section').scrollIntoView({behavior:'smooth'});
