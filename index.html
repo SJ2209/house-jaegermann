@@ -30,14 +30,18 @@ body { background: var(--bg); color: var(--ink); font-family: 'Jost', sans-serif
   justify-content: center;
   flex-direction: column;
   position: relative;
+  padding-top: 0;
+  justify-content: flex-start;
+  padding-top: 2cm;
 }
 .logo {
   width: 320px;
   height: 320px;
   object-fit: contain;
   cursor: pointer;
+  margin-bottom: 0;
 }
-@media (max-width: 768px) { .logo { width: 260px; height: 260px; } }
+@media (max-width: 768px) { .logo { width: 260px; height: 260px; margin-bottom: 0; } }
 
 /* TAGLINE */
 .tagline {
@@ -46,10 +50,10 @@ body { background: var(--bg); color: var(--ink); font-family: 'Jost', sans-serif
   font-weight: 300;
   font-style: italic;
   letter-spacing: 0.22em;
-  color: rgba(220,210,195,0.42);
+  color: rgba(220,210,195,0.58);
   text-align: center;
-  margin-top: 2rem;
-  margin-bottom: 1.5rem;
+  margin-top: 0.75rem;
+  margin-bottom: 2.5rem;
 }
 
 /* ABOUT BUTTON */
@@ -69,7 +73,9 @@ body { background: var(--bg); color: var(--ink); font-family: 'Jost', sans-serif
   border: none;
   animation: halo-pulse 3s ease-in-out infinite;
   transition: color 0.3s;
+  margin-top: 0;
 }
+@media (max-width: 768px) { .about-btn { margin-top: 4rem; } }
 .about-btn:hover { color: #c9a96e; }
 
 /* MOBILE SCROLL BTN */
@@ -376,9 +382,14 @@ textarea { min-height: 72px; line-height: 1.6; }
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-// Mobile logo → about.html
+// Mobile logo → scroll to about section
 if (window.innerWidth <= 768) {
-  document.getElementById('logo-link').href = 'about.html';
+  const logoLink = document.getElementById('logo-link');
+  logoLink.removeAttribute('href');
+  logoLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('about-section').scrollIntoView({behavior:'smooth'});
+  });
 }
 
 emailjs.init("pl_A9lrVP1CSKuxBd");
