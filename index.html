@@ -41,7 +41,7 @@ body { background: var(--bg); color: var(--ink); font-family: 'Jost', sans-serif
   cursor: pointer;
   margin-bottom: 0;
 }
-@media (max-width: 768px) { .logo { width: 260px; height: 260px; margin-bottom: 0; } }
+@media (max-width: 768px) { .logo { width: 52vw; max-width: 220px; height: auto; margin-bottom: 0; } }
 
 /* TAGLINE */
 .tagline {
@@ -55,7 +55,7 @@ body { background: var(--bg); color: var(--ink); font-family: 'Jost', sans-serif
   margin-top: 0.75rem;
   margin-bottom: 2.5rem;
 }
-@media (max-width: 768px) { .tagline { font-size: 17px; margin-top: 2.5rem; } }
+@media (max-width: 768px) { .tagline { font-size: 15px; margin-top: 1.2rem; margin-bottom: 0; max-width: 80vw; text-wrap: balance; } }
 
 /* ABOUT BUTTON */
 .about-btn {
@@ -76,7 +76,7 @@ body { background: var(--bg); color: var(--ink); font-family: 'Jost', sans-serif
   transition: color 0.3s;
   margin-top: 0;
 }
-@media (max-width: 768px) { .about-btn { position: fixed; bottom: 2.5rem; left: 50%; transform: translateX(-50%); margin-top: 0; z-index: 10; } }
+@media (max-width: 768px) { .about-btn { position: fixed; bottom: 2.5rem; left: 50%; transform: translateX(-50%); margin-top: 0; z-index: 10; animation: halo-pulse-mobile 3s ease-in-out infinite; } }
 .about-btn:hover { color: #c9a96e; }
 
 /* MOBILE SCROLL BTN */
@@ -208,6 +208,10 @@ footer { text-align: center; padding: 2rem; font-family: 'Cormorant Garamond', s
 @keyframes halo-pulse {
   0%,100% { background: radial-gradient(ellipse at center, rgba(201,169,110,0.2) 0%, transparent 65%); box-shadow: 0 0 20px rgba(201,169,110,0.3); }
   50% { background: radial-gradient(ellipse at center, rgba(201,169,110,0.6) 0%, transparent 65%); box-shadow: 0 0 60px rgba(201,169,110,0.7), 0 0 100px rgba(201,169,110,0.35); }
+}
+@keyframes halo-pulse-mobile {
+  0%,100% { background: radial-gradient(ellipse at center, rgba(201,169,110,0.14) 0%, transparent 65%); box-shadow: 0 0 14px rgba(201,169,110,0.21); }
+  50% { background: radial-gradient(ellipse at center, rgba(201,169,110,0.42) 0%, transparent 65%); box-shadow: 0 0 42px rgba(201,169,110,0.49), 0 0 70px rgba(201,169,110,0.24); }
 }
 @keyframes glow-pulse {
   0%,100% { opacity: 1; transform: scale(1); }
