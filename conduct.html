@@ -162,6 +162,9 @@ body { background: var(--bg); color: var(--ink); font-family: 'Jost', sans-serif
     document.getElementById('tab-de').style.borderBottomColor = lang === 'de' ? '#c9a96e' : 'rgba(201,169,110,0.25)';
     document.getElementById('tab-de').style.color = lang === 'de' ? '#c9a96e' : 'rgba(201,169,110,0.5)';
   }
+  if (window.location.hash === '#de') {
+    switchLang('de');
+  }
   </script>
 
   <a href="index.html" class="back-btn">← Return to the House</a>
